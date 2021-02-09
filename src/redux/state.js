@@ -37,14 +37,77 @@ let store = {
     
       },
 
-      getState() {
-        return this._state;
-      },
-
-    _callSubscriber() {
+      _callSubscriber() {
         console.log('state was changed');
     },
 
+      getState() {
+        return this._state;
+      },
+      subscribe (observer) {
+        this._callSubscriber = observer; //паттерн Наблюдатель
+    },
+    
+
+    dispatch(action) {
+        switch (action.type) {
+            case 'ADD-POST': {
+                let newPost = {
+                    id: 5,
+                    message: this._state.profilePage.newPostText,
+                    likeCount: 0
+                };
+
+                this._state.profilePage.postsData.push(newPost);
+                this._state.profilePage.newPostText = '';
+                this._callSubscriber(this._state); 
+                break;
+            }
+
+            case 'UPDATE-NEW-POST-TEXT': {
+                this._state.profilePage.newPostText = action.newText;
+                this._callSubscriber(this._state);
+                break;
+            }
+
+            case 'ADD-NEW-MESSAGE': {
+                let newMessage = {
+                    id: 4,
+                    message: this._state.dialogsPage.newMessage
+                }
+
+                this._state.dialogsPage.messagesData.push(newMessage);
+                this._state.dialogsPage.newMessage = '';
+                this._callSubscriber(this._state);
+                break;
+            }
+
+            case 'UPDATE-NEW-MESSAGE': {
+                this._state.dialogsPage.newMessage = action.newTextMessage;
+                this._callSubscriber(this._state);
+                break;
+            }
+            
+        }
+
+
+    }
+}
+window.store = store;
+
+export default store;
+
+
+
+
+
+
+
+
+
+
+
+/*
     addPost() {
         let newPost = {
             id: 5,
@@ -54,7 +117,7 @@ let store = {
   
         this._state.profilePage.postsData.push(newPost);
         this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
+        this._callSubscriber(this._state); 
     },
 
     updateNewPostText(newText) {
@@ -75,13 +138,4 @@ let store = {
         this._state.dialogsPage.messagesData.push(newMessage);
         this._state.dialogsPage.newMessage = '';
         this._callSubscriber(this._state);
-    },
-
-    subscribe (observer) {
-        this._callSubscriber = observer; //паттерн Наблюдатель
-    }
-}
-window.store = store;
-
-export default store;
-
+    },*/
