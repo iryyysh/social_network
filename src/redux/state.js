@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
+const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
+
 let store = {
     _state : {
         profilePage : {
@@ -51,7 +56,7 @@ let store = {
 
     dispatch(action) {
         switch (action.type) {
-            case 'ADD-POST': {
+            case ADD_POST: {
                 let newPost = {
                     id: 5,
                     message: this._state.profilePage.newPostText,
@@ -64,13 +69,13 @@ let store = {
                 break;
             }
 
-            case 'UPDATE-NEW-POST-TEXT': {
+            case UPDATE_NEW_POST_TEXT : {
                 this._state.profilePage.newPostText = action.newText;
                 this._callSubscriber(this._state);
                 break;
             }
 
-            case 'ADD-NEW-MESSAGE': {
+            case ADD_NEW_MESSAGE: {
                 let newMessage = {
                     id: 4,
                     message: this._state.dialogsPage.newMessage
@@ -82,7 +87,7 @@ let store = {
                 break;
             }
 
-            case 'UPDATE-NEW-MESSAGE': {
+            case UPDATE_NEW_MESSAGE: {
                 this._state.dialogsPage.newMessage = action.newTextMessage;
                 this._callSubscriber(this._state);
                 break;
@@ -93,6 +98,20 @@ let store = {
 
     }
 }
+
+
+export const addPostActionCreator = () => ({ type: ADD_POST })
+
+export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text})
+
+export const addNewMessageActionCreator = () => {
+    return {type: ADD_NEW_MESSAGE}
+}
+
+export const updateNewMessageActionCreator = (text) => {
+    return {type: UPDATE_NEW_MESSAGE, newTextMessage: text}
+} 
+
 window.store = store;
 
 export default store;
