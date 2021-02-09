@@ -1,0 +1,14 @@
+
+.content__wallpaper {
+  width: 100%;
+  /* Ширина области */
+  height: 300px;
+}
+
+.wallpaper {
+  width: 100%;
+  /* Ширина изображений */
+  height: 100%;
+  /* Высота изображении */
+  object-fit: cover;
+}

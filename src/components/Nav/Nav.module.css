@@ -1,0 +1,37 @@
+.nav {
+    grid-area: n;
+    padding: 15px;
+  
+    background-color: #fff;
+  }
+  
+  .item {
+    padding: 5px 0;
+  }
+
+  .item a {
+    text-decoration: none;
+  }
+
+  .item a:visited {
+    color: darkolivegreen;
+  }
+
+  .item a.activeLink {
+    font-weight: 700;
+  }
+
+  .title {
+    margin-bottom: 15px;
+
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .friends {
+    margin-top: 50px;
+  }
+  
+  .friends_items {
+    display: flex;
+  }

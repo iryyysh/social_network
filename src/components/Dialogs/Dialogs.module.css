@@ -1,0 +1,28 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogs_items {
+    padding: 10px;
+
+    color: black;
+    
+}
+
+.dialog:visited {
+    color: black;    
+}
+
+.active {
+    color: red;
+    
+}
+
+.messages {
+    padding: 10px;
+}
+
+.message {
+    color: black;
+}
