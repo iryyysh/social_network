@@ -10,18 +10,21 @@ import App from './App';
    debugger;
     ReactDOM.render(
       <React.StrictMode>
-        <App state={state} dispatch={store.dispatch.bind(store)} />
+        <App state={state} dispatch={store.dispatch.bind(store)} store={store}/>
       </React.StrictMode>,
       document.getElementById('root')
     );
 }
 
+
+rerenderEntireTree(store.getState());
+
 store.subscribe(() => {
+  debugger;
   let state = store.getState();
   rerenderEntireTree(state)
 });
 
-rerenderEntireTree(store.getState());
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
