@@ -31,7 +31,7 @@ let store = {
             newMessage: 'ff'
         },
     
-        siteBarFriends : {
+        sideBarFriends : {
             friendsData: [
                 {id: 1, name: 'Fedor', imgSrc: 'https://ic.pics.livejournal.com/yushchuk/7212286/1246684/1246684_original.png'},
                 {id: 2, name: 'George', imgSrc: 'https://static.wixstatic.com/media/bc9f64_6f2ff76063cb4b80893faca0f90190a8~mv2.jpg'},
@@ -57,7 +57,7 @@ let store = {
 
         this._state.profilePage = profileReducer(this._state.profilePage, action);
         this._state.dialogPage = dialogReducer(this._state.dialogsPage, action);
-        this._state.siteBarFriends = sidebarReducer(this._state.siteBarFriends, action);
+        this._state.sideBarFriends = sidebarReducer(this._state.sideBarFriends, action);
 
         this._callSubscriber(this._state); 
     }
