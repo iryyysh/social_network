@@ -4,11 +4,11 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
     
-debugger;
+//debugger;
     return (
         <div>
             <ProfileInfo/>
-            <MyPostsContainer store={props.store}/>
+            <MyPostsContainer/>   {/* store={props.store} */}
         </div>
     )
 }

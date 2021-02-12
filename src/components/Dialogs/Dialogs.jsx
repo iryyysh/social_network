@@ -6,7 +6,7 @@ import React from 'react';
 import {addNewMessageActionCreator, updateNewMessageActionCreator} from '../../redux/dialogReducer'
 
 const Dialogs = (props) => {
-    debugger;
+    //debugger;
 
     let state = props.dialogsPage;
 
